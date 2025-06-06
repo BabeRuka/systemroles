@@ -1,6 +1,6 @@
 <?php
 
-namespace BabeRuka\SystemRoles\Http\SystemRoles;
+namespace BabeRuka\SystemRoles\Http\Controllers\SystemRoles;
 
 use BabeRuka\SystemRoles\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
