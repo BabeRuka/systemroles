@@ -1,8 +1,16 @@
 <?php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 class CreateSystemRolesTable extends Migration
 {
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+
         Schema::create('system_roles', function (Blueprint $table) {
             $table->bigIncrements('role_id');
             $table->string('role_name', 191)->unique();
@@ -13,6 +21,9 @@ class CreateSystemRolesTable extends Migration
             $table->integer('role_sequence')->nullable();
             $table->timestamps();
         });
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
     }
 
     public function down()
