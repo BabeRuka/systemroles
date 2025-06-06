@@ -56,7 +56,7 @@ class SystemRolesServiceProvider extends ServiceProvider
             $this->commands([
                 \BabeRuka\SystemRoles\Console\Commands\MigrateSystemRolesCommand::class,
             ]);
-            $this->loadSeedersFrom(__DIR__.'/../../database/seeders');
+            //$this->loadSeedersFrom(__DIR__.'/../../database/seeders');
         }
         $this->publishes([
             __DIR__.'/../../assets/css' => public_path('vendor/systemroles/css'),
@@ -69,6 +69,10 @@ class SystemRolesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../resources/views/systemroles' => resource_path('views/vendor/systemroles'),
         ], 'systemroles-views');
+
+        $this->publishes([
+            __DIR__.'/../../database/seeders' => database_path('seeders'),
+        ], 'systemroles-seeders');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
