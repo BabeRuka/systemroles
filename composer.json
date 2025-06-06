@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BabeRuka\\SystemRoles\\": "src/"
+            "BabeRuka\\SystemRoles\\": "src/BabeRuka/SystemRoles/"
         }
     },
     "extra": {
