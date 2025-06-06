@@ -10,7 +10,7 @@ use BabeRuka\SystemRoles\Models\SystemRoles;
 use BabeRuka\SystemRoles\Models\SystemRolesIn;
 use BabeRuka\SystemRoles\Models\UserRoles;
 use BabeRuka\SystemRoles\Models\UserRolesIn;
-use BabeRuka\SystemRoles\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\DB; 
 use BabeRuka\SystemRoles\Repository\UserFunctions; 
 
@@ -165,10 +165,10 @@ class SystemRolesController extends Controller
             $role_id = $userRole->role_id ?? 0;
             $role = $SystemRoles->where('role_id', $role_id)->first();
             if (!$role) {
-                $role_name = '<span class="badge badge-secondary p-2">No Role</span>';
+                $role_name = '<span class="badge badge-pill badge-secondary p-2">No Role</span>';
                 $role_guard_name = 'no_role';
             } else {
-                $role_name = '<span class="badge badge-secondary p-2">'.$role->role_name.'</span>';
+                $role_name = '<span class="badge badge-pill badge-secondary p-2">'.$role->role_name.'</span>';
                 $role_guard_name = $role->role_guard_name;
             }
             $data[$key]['role_id'] = $role_id;
@@ -227,20 +227,22 @@ class SystemRolesController extends Controller
             'in_guard_name' => 'required|unique:system_roles_in,in_guard_name',
             'in_role' => 'required',
         ]);
-        //check if the permission is already in the role table user_roles
-        //role_id	user_id	user_role	role_admin	role_type	updated_at	created_at
-        $has_permission = UserRoles::where('user_id', $request->input('user_id'))->where('role_id', $request->input('role_id'))->first();
+        
+        $has_permission = SystemRolesIn::where('in_name', $request->input('in_name'))->where('role_id', $request->input('role_id'))->first();
         if (!$has_permission) {
-            $UserRoles = new UserRoles();
-            $role_admin = $request->input('user_role') == 1 ? 1 : 0;
-            $role_type = $request->input('role_type') == 1 ? 1 : 0;
-            $UserRoles->user_id = $request->input('user_id'); 
-            $UserRoles->user_role = $request->input('role_id');
-            $UserRoles->role_admin = $role_admin;
-            $UserRoles->role_type = $role_type;
-            $UserRoles->save();
-            $role_id = $UserRoles->role_id; 
-            return redirect()->back()->with('success', 'Permission added successfully.');
+            $systemRolesIn = new SystemRolesIn();
+            $systemRolesIn->in_name = $request->input('in_name');
+            $systemRolesIn->in_role = $request->input('in_role') == 1 || $request->input('in_role') == '1' ? 1 : 0;
+            $systemRolesIn->in_guard_name = strtolower($request->input('in_guard_name')); 
+            $systemRolesIn->role_id = $request->input('role_id');
+            $systemRolesIn->in_sequence = $this->nextInSequence(); 
+            $systemRolesIn->save();
+            $in_id = $systemRolesIn->in_id; 
+            if($in_id > 0) { 
+                return redirect()->back()->with('success', 'Permission added successfully.');
+            }else{
+                return redirect()->back()->with('error', 'Permission not added successfully.');
+            }
         }
         return redirect()->back()->with('error', 'Permission already exists.');
     }
