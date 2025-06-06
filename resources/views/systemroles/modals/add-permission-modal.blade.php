@@ -1,6 +1,6 @@
 <div class="modal fade" id="addPermissionModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
-        <form id="permForm" action="{{ route('admin.roles.permissions.store') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <form id="permForm" action="{{ route('systemroles.admin.roles.permissions.store') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
             <input type="hidden" name="role_id" id="role_id" value="{{ $systemRole->role_id }}"> 
             <div class="modal-content">

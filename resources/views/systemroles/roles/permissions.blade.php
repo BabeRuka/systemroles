@@ -1,16 +1,16 @@
 @inject('roles', 'BabeRuka\SystemRoles\Models\SystemRoles')
-@extends('layouts.admin')
+@extends('vendor.systemroles.layouts.admin')
 @section('title', 'Roles')
 @section('breadcrumbs')
 <ol class="breadcrumb my-0">
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('systemroles.admin.roles') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('systemroles.admin.roles.index') }}">Roles</a></li>
     <li class="breadcrumb-item active"><span>Permissions</span></li>
 </ol>
 @endsection
 @section('css')
-<link rel="stylesheet" href="{{ asset('addons/datatables/bootstrap5/css/datatables.min.css') }}">
-<link rel="stylesheet" href="{{ asset('addons/datatables/bootstrap5/css/datatables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/css/datatables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/css/datatables.min.css') }}">
 
 @endsection
 @php 
@@ -59,12 +59,12 @@
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center gap-3">
                                                 @if($loop->iteration > 1)   
-                                                <a class="float-end" href="{{ route('admin.roles.permissions.up', ['in_id' => $role->in_id]) }}" >
+                                                <a class="float-end" href="{{ route('systemroles.admin.roles.permissions.up', ['in_id' => $role->in_id]) }}" >
                                                     <i class="ri-arrow-up-circle-fill text-success"></i>
                                                 </a>
                                                 @endif
                                                 @if($loop->iteration < count($permissions))
-                                                <a class="float-end" href="{{ route('admin.roles.permissions.down', ['in_id' => $role->in_id]) }}" >
+                                                <a class="float-end" href="{{ route('systemroles.admin.roles.permissions.down', ['in_id' => $role->in_id]) }}" >
                                                     <i class="ri-arrow-down-circle-fill text-success"></i>
                                                 </a>
                                                 @endif  
@@ -91,7 +91,7 @@
  
 @endsection
 @section('javascript')
-<script src="{{ asset('addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
+<script src="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
 <script>
     window.closeModalById = function(modalId) {
         const modalElement = document.getElementById(modalId);
@@ -117,7 +117,7 @@
     });
     function moveInUp(in_id) {
         $.ajax({
-            url: "{{ route('admin.roles.permissions.up') }}",
+            url: "{{ route('systemroles.admin.roles.permissions.up') }}",
             type: "POST",
             data: { in_id: in_id },
             success: function(response) {
@@ -127,7 +127,7 @@
     }   
     function moveInDown(in_id) {
         $.ajax({
-            url: "{{ route('admin.roles.permissions.down') }}",
+            url: "{{ route('systemroles.admin.roles.permissions.down') }}",
             type: "POST",
             data: { in_id: in_id },
             success: function(response) {

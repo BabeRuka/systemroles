@@ -12,7 +12,7 @@
                 <div class="row">
                     <h3 class="text-primary fs-6 fw-bold" id="AddRoleModalHeading"></h3>
                     <div class="col-12">
-                        <form action="{{ route('admin.roles.store') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="{{ route('systemroles.admin.roles.store') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="col-12 mb-3">

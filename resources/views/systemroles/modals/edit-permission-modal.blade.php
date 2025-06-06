@@ -1,6 +1,6 @@
 <div class="modal fade" id="editPermissionModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
-        <form id="permForm" action="{{ route('admin.roles.permissions.update') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <form id="permForm" action="{{ route('systemroles.admin.roles.permissions.update') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
             @method('PUT')
             <input type="hidden" name="in_id" id="in_id_edit">

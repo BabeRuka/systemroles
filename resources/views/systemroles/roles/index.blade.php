@@ -1,9 +1,9 @@
 @inject('roles', 'BabeRuka\SystemRoles\Models\SystemRoles')
-@extends('layouts.admin')
+@extends('vendor.systemroles.layouts.admin')
 @section('title', 'Roles')
 @section('breadcrumbs')
 <ol class="breadcrumb my-0">
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('systemroles.admin.roles') }}">Dashboard</a></li>
     <li class="breadcrumb-item active"><span>Roles</span></li>
 </ol>
 @endsection
@@ -69,7 +69,7 @@
                                         <td>{{ $role->role_sequence }}</td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center gap-3">
-                                                <a href="{{ route('admin.roles.manage', ['role_id' => $role->role_id]) }}" class="float-start">
+                                                <a href="{{ route('systemroles.admin.roles.manage', ['role_id' => $role->role_id]) }}" class="float-start">
                                                     <i class="ri-add-circle-fill text-primary"></i>
                                                 </a>
 
@@ -103,8 +103,8 @@
 
 
 <!-- Modal -->
-@include('systemroles.modals.add-role-modal')
-@include('systemroles.modals.edit-role-modal')
+@include('vendor.systemroles.modals.add-role-modal')
+@include('vendor.systemroles.modals.edit-role-modal')
 
 @endsection
 @section('javascript')

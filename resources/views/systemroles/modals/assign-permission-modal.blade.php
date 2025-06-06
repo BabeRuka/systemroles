@@ -12,7 +12,7 @@
                 <div class="row">
                     
                     <div class="col-12">
-                        <form action="{{ route('admin.roles.user.assign') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="{{ route('systemroles.admin.roles.user.assign') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             <input type="hidden" name="user_id" id="user_id_assign" value="0">   
                             @csrf
                             @method('POST')

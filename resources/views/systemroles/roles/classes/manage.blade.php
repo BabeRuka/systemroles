@@ -1,16 +1,16 @@
 @inject('roles', 'BabeRuka\SystemRoles\Models\SystemRoles')
-@extends('layouts.admin')
+@extends('vendor.systemroles.layouts.admin')
 @section('title', 'Roles')
 @section('breadcrumbs')
 <ol class="breadcrumb my-0">
-    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('admin.roles.classes.index') }}">Classes</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('systemroles.admin.roles') }}">Dashboard</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('systemroles.admin.roles.index') }}">Roles</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('systemroles.admin.roles.classes.index') }}">Classes</a></li>
     <li class="breadcrumb-item active"><span>Manage Class Access</span></li>
 </ol>
 @endsection
 @section('css')
-<link rel="stylesheet" href="{{ asset('addons/datatables/bootstrap5/css/datatables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/css/datatables.min.css') }}">
 
 @endsection
 @php
@@ -29,7 +29,7 @@
                         <div> 
                         </div>
                     </div>
-                    <form id="ManageClassAccessForm" method="POST" action="{{ route('admin.roles.classes.in.store') }}" class="form-horizontal needs-validation" novalidate>
+                    <form id="ManageClassAccessForm" method="POST" action="{{ route('systemroles.admin.roles.classes.in.store') }}" class="form-horizontal needs-validation" novalidate>
                     @csrf
                     <input type="hidden" name="class_id" value="{{ $class->class_id }}">
                     <div class="card-body">
@@ -96,7 +96,7 @@
  
 @endsection
 @section('javascript')
-<script src="{{ asset('addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
+<script src="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {

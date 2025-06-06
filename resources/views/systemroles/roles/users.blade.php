@@ -1,13 +1,13 @@
-@extends('layouts.admin')
+@extends('vendor.systemroles.layouts.admin')
 @section('title', 'Users')
 @section('breadcrumbs')
     <ol class="breadcrumb my-0">
-        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('systemroles.admin.roles') }}">Dashboard</a></li>
         <li class="breadcrumb-item active"><span>Users</span></li>
     </ol>    
 @endsection
 @section('css')
-    <link rel="stylesheet" href="{{ asset('addons/datatables/bootstrap5/css/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/css/datatables.min.css') }}">
 
 @endsection
 @section('content')
@@ -44,14 +44,14 @@
                 </div>
             </div>
         </div>
-  
-        @include('systemroles.modals.assign-permission-modal')
+
+        @include('vendor.systemroles.modals.assign-permission-modal')
     @endsection
 
 
     @section('javascript')
-        <script src="{{ asset('addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
-        <script src="{{ asset('addons/dropify/js/dropify.min.js') }}"></script> 
+        <script src="{{ asset('vendor/systemroles/addons/datatables/bootstrap5/js/datatables.min.js') }} "></script>
+        <script src="{{ asset('vendor/systemroles/addons/dropify/js/dropify.min.js') }}"></script>
         <script>
             $(function() {
                 $('[data-toggle="tooltip"]').tooltip()
@@ -68,7 +68,7 @@
                     },
                     ajax: ({
                         type: "POST",
-                        url: '{{ route('admin.roles.users.userdata') }}'
+                        url: '{{ route('systemroles.admin.roles.users.userdata') }}'
                     }),
                     "lengthMenu": [
                         [10, 25, 50, -1],
@@ -120,9 +120,13 @@
                             name: 'perm',
                             render: function(data, type, row) { 
                                 var role_id = parseInt(row.role_id) || 0; 
+                                var user_id = parseInt(row.id) || 0;
                                 var user_permissions = row.user_permissions;
                                 var updatePermission = user_permissions.Update;
                                 var managePermission = user_permissions.Manage;
+                                if(user_id==1){
+                                    managePermission = 1; // Super Admin always has manage permission
+                                }
                                 console.log(role_id+' '+row.id+' '+updatePermission+' '+managePermission);
                                 var manage_user = '<a href="https://dev.tradewave.cloud/profilehub/admin/users/user?id='+row.id+'" class="" data-toggle="tooltip" data-placement="top" title="View"> <i class="ri-cursor-fill"></i> </a>';
                                 var assign_permission = '<a data-bs-toggle="modal" href="#AssignPermissionModal" data-bs-target="#AssignPermissionModal" title="Assign Permission"  onClick="addInputToElement(\'role_id_assign\', \'' + role_id + '\'),addInputToElement(\'user_id_assign\', \'' + row.id + '\'),addTextToElement(\'AssignPermissionModalHeading\', \'Assign Permission for ' + row.name + '\')" type="button"  class="tooltip-trigger"> <i class="ri-lock-unlock-line text-primary"></i> </a>';

@@ -12,7 +12,7 @@
                 <div class="row">
                     <h3 class="text-primary fs-6 fw-bold" id="EditRoleModalHeading"></h3>
                     <div class="col-12">
-                        <form action="{{ route('admin.roles.update') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="{{ route('systemroles.admin.roles.update') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             @csrf
                             @method('POST')
                             <input type="hidden" name="role_id" id="role_id_edit" value="0">

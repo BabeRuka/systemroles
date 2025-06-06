@@ -12,7 +12,7 @@
                 <div class="row">
                     <h3 class="text-primary fs-6 fw-bold" id="ConfirmModalHeading"></h3>
                     <div class="col-12">
-                        <form action="{{ route('admin.roles.classes.in.init') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="{{ route('systemroles.admin.roles.classes.in.init') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             @csrf
                             @method('POST')
                             <div class="row">
