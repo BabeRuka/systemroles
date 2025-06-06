@@ -14,11 +14,9 @@
     },
     "autoload": {
         "psr-4": {
-            "BabeRuka\\SystemRoles\\": "src/"
-        },
-        "classmap": [
-            "database/seeders"
-        ]
+            "BabeRuka\\SystemRoles\\": "src/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
     },
     "extra": {
         "laravel": {
