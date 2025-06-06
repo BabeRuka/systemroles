@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Http\Kernel;  
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Routing\Router;  
+use BabeRuka\SystemRoles\Services\SystemRolesService;
+use BabeRuka\SystemRoles\Services\SystemClassesScanner;
 
 class SystemRolesServiceProvider extends ServiceProvider
 {
@@ -20,17 +22,20 @@ class SystemRolesServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
 
         // Bind service
-        $this->app->singleton(SystemRolesService::class, function ($app) {
-            return new \BabeRuka\SystemRoles\Services\SystemRolesService();
-        });
+        $this->app->singleton(SystemRolesServiceProvider::class);
 
         // Facade
         $this->app->bind('systemroles', static function (Application $app) {
             return $app->make(\BabeRuka\SystemRoles\Services\SystemRolesService::class);
         });
 
-        // Helper Facade Binding
-        $this->app->bind('systemroles.helper', \BabeRuka\SystemRoles\Helpers\Helper::class);
+        $this->app->bind(SystemRolesService::class, function ($app) {
+            return new SystemRolesService();
+        });
+
+        $this->app->bind(SystemClassesScanner::class, function ($app) {
+            return new SystemClassesScanner();
+        });
 
         // Config
         $this->mergeConfigFrom(
