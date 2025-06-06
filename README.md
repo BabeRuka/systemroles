@@ -30,7 +30,7 @@ php artisan vendor:publish --tag=systemroles-assets
 ```bash
 php artisan systemroles:migrate
 php artisan migrate
-php artisan db:seed --class="BabeRuka\SystemRoles\Database\Seeders\YourSeederClass"
+php artisan db:seed --class="BabeRuka\SystemRoles\Database\Seeders\SystemRolesSeeder"
 
 ```
 ## Usage
