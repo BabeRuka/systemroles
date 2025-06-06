@@ -1,4 +1,4 @@
-@inject('roles', 'App\Models\SystemRoles')
+@inject('roles', 'BabeRuka\SystemRoles\Models\SystemRoles')
 @extends('layouts.admin')
 @section('title', 'Roles')
 @section('breadcrumbs')

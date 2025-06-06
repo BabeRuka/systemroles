@@ -1,4 +1,3 @@
-@inject('userdetails', 'App\Models\UserFieldDetails')
 @extends('layouts.admin')
 @section('title', 'Users')
 @section('breadcrumbs')
