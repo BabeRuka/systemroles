@@ -6,11 +6,11 @@ use BabeRuka\SystemRoles\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use Auth;
 use Session;
-use BabeRuka\Models\SystemRoles;
-use BabeRuka\Models\SystemRolesIn;
-use BabeRuka\Models\UserRoles;
-use BabeRuka\Models\UserRolesIn;
-use BabeRuka\Models\User;
+use BabeRuka\SystemRoles\ModelsSystemRoles;
+use BabeRuka\SystemRoles\ModelsSystemRolesIn;
+use BabeRuka\SystemRoles\ModelsUserRoles;
+use BabeRuka\SystemRoles\ModelsUserRolesIn;
+use BabeRuka\SystemRoles\ModelsUser;
 use Illuminate\Support\Facades\DB; 
 use App\Repository\UserFunctions; 
 
