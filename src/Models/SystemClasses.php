@@ -1,8 +1,9 @@
 <?php
 
 namespace BabeRuka\SystemRoles\Models;
-
+use BabeRuka\SystemRoles\Traits\SystemClassesIn;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SystemClasses extends Model
 {

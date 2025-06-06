@@ -25,20 +25,20 @@ class SystemClassesController extends Controller
         $all_classes = SystemClasses::all();
         $all_roles = SystemRoles::all();
         $class_roles = SystemClassesIn::all();
-        return view('systemroles.roles.classes.index', compact('all_classes', 'all_roles', 'class_roles'));
+        return view('vendor.systemroles.roles.classes.index', compact('all_classes', 'all_roles', 'class_roles'));
     }
 
     public function manage(Request $request)
     {
         $class_id = $request->input('class_id');
         if (!$class_id) {
-            return redirect()->route('admin.roles.classes.index')->with('error', 'Class ID is required.');
+            return redirect()->route('systemroles.admin.roles.classes.index')->with('error', 'Class ID is required.');
         }
         $class = SystemClasses::findOrFail($class_id);
         $class_roles = SystemClassesIn::where('class_id', $class_id)->get();
         $all_roles = SystemRoles::all(); 
 
-        return view('systemroles.roles.classes.manage', compact('class', 'all_roles', 'class_roles'));
+        return view('vendor.systemroles.roles.classes.manage', compact('class', 'all_roles', 'class_roles'));
     }
 
      
@@ -70,7 +70,7 @@ class SystemClassesController extends Controller
         $class_id = $request->input('class_id');
         $role_id = $request->input('role_id');
         if (!$class_id || !$role_id) {
-            return redirect()->route('admin.roles.classes.index')->with('error', 'Class ID and Role ID are required.');
+            return redirect()->route('systemroles.admin.roles.classes.index')->with('error', 'Class ID and Role ID are required.');
         }
         $num = 0; 
         foreach ($request->post('role_id') as $role_id => $role_val) {

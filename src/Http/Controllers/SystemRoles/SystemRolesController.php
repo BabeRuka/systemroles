@@ -41,7 +41,7 @@ class SystemRolesController extends Controller
         $SystemRoles = new SystemRoles();
         $systemRoles = $SystemRoles->all();
         $user_roles = UserRoles::all();
-        return view('systemroles.roles.index', compact('systemRoles', 'user_roles'));
+        return view('vendor.systemroles.roles.index', compact('systemRoles', 'user_roles'));
     }
 
     // Store a new role
@@ -84,14 +84,14 @@ class SystemRolesController extends Controller
         $all_roles = SystemRoles::all();
         $permissions = $systemRole->permissions()->get();
         $user_roles = $systemRole->userRoles()->get();
-        return view('systemroles.roles.manage', compact('systemRole', 'permissions', 'user_roles', 'systemRolesIn', 'all_roles', 'all_permissions'));
+        return view('vendor.systemroles.roles.manage', compact('systemRole', 'permissions', 'user_roles', 'systemRolesIn', 'all_roles', 'all_permissions'));
     }
 
     // View all permissions
     public function permissionsIndex()
     {
         $permissions = SystemRolesIn::with('role')->with('userPermissions')->get();
-        return view('systemroles.roles.permissions', compact('permissions'));
+        return view('vendor.systemroles.roles.permissions', compact('permissions'));
     }
 
     public function users()
@@ -99,7 +99,7 @@ class SystemRolesController extends Controller
         $users = User::all();
         $roles = SystemRoles::all();
         $user_roles = UserRoles::all();
-        return view('systemroles.roles.users', compact('users', 'roles', 'user_roles'));
+        return view('vendor.systemroles.roles.users', compact('users', 'roles', 'user_roles'));
     }
 
     function userData(Request $request)
