@@ -6,10 +6,10 @@ use BabeRuka\SystemRoles\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
-use BabeRuka\SystemRoles\ModelsSystemRoles; 
-use BabeRuka\SystemRoles\ModelsSystemClasses;
-use BabeRuka\SystemRoles\ModelsSystemClassesIn; 
-use App\Services\SystemClassesScanner; 
+use BabeRuka\SystemRoles\Models\SystemRoles; 
+use BabeRuka\SystemRoles\Models\SystemClasses;
+use BabeRuka\SystemRoles\Models\SystemClassesIn; 
+use BabeRuka\SystemRoles\Services\SystemClassesScanner; 
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

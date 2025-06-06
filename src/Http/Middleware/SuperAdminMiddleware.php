@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;  
-use BabeRuka\SystemRoles\UserRole;
+use BabeRuka\SystemRoles\Models\UserRole;
 use Session;
 
 class SuperAdminMiddleware
