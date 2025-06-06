@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BabeRuka\\SystemRoles\\Providers\\SystemRolesProvider"
+                "BabeRuka\\SystemRoles\\Providers\\SystemRolesServiceProvider"
             ],
             "aliases": {
                 "SystemRoles": "BabeRuka\\SystemRoles\\Facades\\SystemRoles"
