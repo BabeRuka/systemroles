@@ -63,7 +63,8 @@ class SystemRolesServiceProvider extends ServiceProvider
             __DIR__.'/../../assets/js' => public_path('vendor/systemroles/js'),
             __DIR__.'/../../assets/fonts' => public_path('vendor/systemroles/fonts'),  
             __DIR__.'/../../assets/images' => public_path('vendor/systemroles/images'),  
-            __DIR__.'/../../assets/addons' => public_path('vendor/systemroles/addons'),  
+            __DIR__.'/../../assets/favicon' => public_path('vendor/systemroles/favicon'),  
+            _DIR__.'/../../assets/addons' => public_path('vendor/systemroles/addons'),  
         ], 'systemroles-assets');
 
         $this->publishes([
