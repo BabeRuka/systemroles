@@ -2,7 +2,7 @@
 
 namespace BabeRuka\SystemRoles\Http\SystemRoles;
 
-use BabeRuka\SystemRoles\Http\Controller;
+use BabeRuka\SystemRoles\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use Auth;
 use Session;
