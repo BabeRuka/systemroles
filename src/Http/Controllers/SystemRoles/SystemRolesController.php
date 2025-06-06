@@ -38,6 +38,7 @@ class SystemRolesController extends Controller
     }
     public function index()
     {
+        $this->init_roles();
         $SystemRoles = new SystemRoles();
         $systemRoles = $SystemRoles->all();
         $user_roles = UserRoles::all();
@@ -312,6 +313,29 @@ class SystemRolesController extends Controller
 
         return redirect()->back()->with('success', 'Permission moved down.');
     }
+    function init_roles()
+    {
+        $all_roles = SystemRoles::all();
+        //check if the roles table is empty
+        if ($all_roles->count() < 0) { 
+            $roles = [
+                ['role_name' => 'Super Admin', 'role_guard_name' => 'super_admin', 'role_sequence' => 1],
+                ['role_name' => 'Admin', 'role_guard_name' => 'admin', 'role_sequence' => 2],
+                ['role_name' => 'Manager', 'role_guard_name' => 'manager', 'role_sequence' => 3],
+                ['role_name' => 'User', 'role_guard_name' => 'user', 'role_sequence' => 4],
+            ];
+            foreach ($roles as $role) {
+                $systemRole = new SystemRoles();
+                $systemRole->role_name = $role['role_name'];
+                $systemRole->role_guard_name = $role['role_guard_name'];
+                $systemRole->role_sequence = $role['role_sequence'];
+                $systemRole->save();
+            }
+            return true;
+        }
+        return false;
+    }
+
     function init_permissions($role_id)
     {
         $permissions = SystemRolesIn::where('role_id', 1)->get();
