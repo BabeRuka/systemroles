@@ -1,0 +1,15 @@
+# Prioritize PHP code
+*.php linguist-detectable=true
+*.blade.php linguist-detectable=true
+
+# Ignore vendored/static/asset folders from language stats
+/assets/* linguist-vendored
+/resources/* linguist-vendored
+/database/* linguist-vendored
+/public/* linguist-vendored
+/node_modules/* linguist-vendored
+/vendor/* linguist-vendored
+
+# Ignore JS and CSS from detection
+*.js linguist-vendored
+*.css linguist-vendored
