@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="body">
+                        <div class="table-responsive">
                             <table class="table table-responsive-sm table-condensed table-striped js-exportable" id="roles-table">
                                 <thead>
                                     <tr>
