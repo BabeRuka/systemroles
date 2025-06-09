@@ -36,3 +36,7 @@ php artisan db:seed --class="BabeRuka\SystemRoles\Database\Seeders\SystemRolesSe
 ## Usage
 
 Visit `/systemroles/admin/roles/index` to check if it's working.
+
+## Documentation
+
+Visit https://www.systemroles.com/ for more detailed documentation. 
