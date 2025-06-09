@@ -14,7 +14,7 @@ class SystemRolesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('system_roles')->insert([
+        DB::table('system_roles')->insertOrIgnore([
             [
                 'role_id' => 1,
                 'role_name' => 'Super Admin',
