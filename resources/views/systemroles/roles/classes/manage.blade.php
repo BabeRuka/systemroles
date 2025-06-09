@@ -33,7 +33,7 @@
                     @csrf
                     <input type="hidden" name="class_id" value="{{ $class->class_id }}">
                     <div class="card-body">
-                        <div class="body"> 
+                        <div class="table-responsive"> 
                             <div id="error-message" class="alert alert-danger d-none" role="alert">
                                 <i class="fa fa-exclamation-triangle"></i>
                                 Please select at least one option for each role.
