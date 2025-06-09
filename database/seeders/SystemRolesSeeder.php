@@ -1,6 +1,6 @@
 <?php
 
-namespace BabeRuka\SystemRoles\Database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
