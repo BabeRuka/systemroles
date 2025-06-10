@@ -1,6 +1,13 @@
-# Prioritize PHP code
+# Prioritize PHP and Laravel code
 *.php linguist-detectable=true
 *.blade.php linguist-detectable=true
+
+# Explicitly mark the repository as Laravel
+composer.json linguist-detectable=true
+artisan linguist-detectable=true
+routes/* linguist-detectable=true
+config/* linguist-detectable=true
+app/* linguist-detectable=true
 
 # Ignore vendored/static/asset folders from language stats
 /assets/* linguist-vendored
