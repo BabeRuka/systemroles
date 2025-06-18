@@ -27,7 +27,6 @@
                 "SystemRoles": "BabeRuka\\SystemRoles\\Facades\\SystemRoles"
             }
         }
-    },
-    "minimum-stability": "dev",
+    }, 
     "prefer-stable": true
 }
