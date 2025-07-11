@@ -19,4 +19,5 @@ resources/lang/vendor/
 resources/views/vendor/
 composer.lock
 .qodo
+.blade
 node_modules
