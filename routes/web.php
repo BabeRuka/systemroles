@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use BabeRuka\SystemRoles\Http\Controllers\SystemRoles\SystemRolesController;
 use BabeRuka\SystemRoles\Http\Controllers\SystemRoles\SystemClassesController;
 
-Route::prefix('systemroles/admin')->middleware('auth')->group(function () { 
+Route::middleware(['web', 'auth'])->prefix('systemroles/admin')->group(function () {
 
         Route::prefix('roles')->group(function () {
         Route::get('/', [SystemRolesController::class, 'index'])->name('systemroles.admin.roles');
