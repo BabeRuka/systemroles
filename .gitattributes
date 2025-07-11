@@ -4,4 +4,5 @@
 *.less linguist-vendored
 *.styl linguist-vendored
 *.js linguist-vendored
+*.blade linguist-vendored
 CHANGELOG.md export-ignore
