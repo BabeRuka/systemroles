@@ -23,6 +23,7 @@
     <meta name="msapplication-TileColor" content="#ffffff"> 
     <meta name="theme-color" content="#ffffff">
     @yield('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     @include('systemroles::layouts.includes.fontawesome')
     @include('systemroles::layouts.includes.remixicon')
     <link href="{{ asset('vendor/systemroles/addons/bootstrap/5.2.3/css/bootstrap.min.css') }}" rel="stylesheet">

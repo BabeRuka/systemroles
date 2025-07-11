@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="body">
                             <table class="table table-responsive-sm table-condensed table-striped js-exportable" id="roles-table">
                                 <thead>
                                     <tr>
@@ -72,10 +72,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center">No permissions found</td>
-                                    </tr>
+                                    @empty 
                                     @endforelse
                                 </tbody>
                             </table>

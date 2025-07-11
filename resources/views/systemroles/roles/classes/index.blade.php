@@ -13,7 +13,6 @@
 
 @endsection
 @php
-//dd($systemRoles);
 @endphp
 @section('content')
 <div class="container-fluid">
@@ -72,10 +71,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center">No roles found</td>
-                                    </tr>
+                                    @empty 
                                     @endforelse
                                 </tbody>
                             </table>

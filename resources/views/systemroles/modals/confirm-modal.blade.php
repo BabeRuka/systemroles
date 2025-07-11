@@ -1,4 +1,4 @@
-<div class="modal fade" id="ConfirmModal" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="ConfirmModalTitle" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" >
+<div class="modal fade" id="ConfirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ConfirmModalTitle" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,7 +6,7 @@
                     <span id="ConfirmModalIcon"><i class="ri-book-open-fill text-primary text-secondary"></i></span>
                     <span id="ConfirmModalTitle">Add Class Access</span>
                 </h5>
-                <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close" onclick="closeModalById('ConfirmModal')"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModalById('ConfirmModal')"></button>
             </div>
             <div class="modal-body">
                 <div class="row">

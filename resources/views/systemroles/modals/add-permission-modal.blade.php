@@ -1,4 +1,4 @@
-<div class="modal fade" id="addPermissionModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="addPermissionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <form id="permForm" action="{{ route('systemroles.admin.roles.permissions.store') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Permission</h5>
-                    <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close" onclick="closeModalById('addPermissionModal')"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModalById('addPermissionModal')"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">

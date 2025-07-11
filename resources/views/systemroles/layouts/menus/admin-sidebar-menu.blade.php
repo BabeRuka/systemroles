@@ -21,16 +21,23 @@
                     </div>
                 </a>
                 <ul class="menu-sub">
-            
                     <li class="menu-item"><a class="nav-link active" href="{{ route('systemroles.admin.roles') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Roles</a></li>
                     <li class="menu-item"><a class="nav-link " href="{{  route('systemroles.admin.roles.permissions') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Permissions</a></li>
                     <li class="menu-item"><a class="nav-link " href="{{  route('systemroles.admin.roles.users') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Users</a></li> 
                     <li class="menu-item"><a class="nav-link " href="{{  route('systemroles.admin.roles.classes.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Classes</a></li> 
-                
-
+                    <li class="menu-item"><a class="nav-link " href="{{  route('systemroles.admin.roles.routes.index') }}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Routes</a></li> 
                 </ul>
             </li>
 
+            <li class="menu-item">
+                <a href="{{ route('systemroles.admin.menus.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ri-menu-unfold-2-fill"></i>
+                    <div class="d-flex justify-content-between w-100 align-items-center" data-i18n="Roles">
+                        <span>Menus</span> 
+                    </div>
+                </a>
+                 
+            </li>
             
             <li class="menu-item">
                 <a class="menu-link" href="#"
@@ -38,9 +45,7 @@
                     <i class="menu-icon tf-icons ri-logout-box-r-line"></i>
                     <div class="d-flex justify-content-between w-100 align-items-center" data-i18n="Modules">
                         <span>{{ __('Logout') }} </span>
-                        
                     </div>
-
                 </a>
             </li>
 
